@@ -1,0 +1,21 @@
+在hosts(C:\Windows\System32\drivers\etc\hosts)文件中加入如下配置:
+127.0.0.1 xjy1
+127.0.0.1 xjy2
+127.0.0.1 xjy3
+
+
+启动三个服务形成集群注册中心，启动命令：
+java -jar eureka-center-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy1
+java -jar eureka-center-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy2
+java -jar eureka-center-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy3
+
+依次启动完成后，浏览器输入：http://localhost:8000/ 效果图
+
+
+根据图可以看出xjy1的注册中心DS Replicas已经有了xjy2\xjy3的相关配置信息，并且出现在available-replicas中。我们手动停止xjy2来观察，
+发现xjy2就会移动到unavailable-replicas一栏中，表示xjy2不可用。
+到此双节点的配置已经完成。
+
+eureka集群使用
+在生产中我们可能需要三台或者大于三台的注册中心来保证服务的稳定性，配置的原理其实都一样，将注册中心分别指向其它的注册中心。
+这里只介绍三台集群的配置情况，其实和双节点的注册中心类似，每台注册中心分别又指向其它两个节点即可，使用application.yml来配置。

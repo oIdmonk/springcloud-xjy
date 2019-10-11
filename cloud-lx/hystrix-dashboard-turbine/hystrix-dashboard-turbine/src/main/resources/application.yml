@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: spring-cloud-eureka-consumer
+server:
+ port: 9029
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://xjy1:8097/eureka/,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000 #断路器超时时间，默认1000ms
+# 手动注册 boot2.0以后必须加这个不然面板会有问题
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["hystrix.stream","turbine.stream","health","info"]
+turbine:
+  appConfig: node1,node2 #配置Eureka中的serviceId列表，表明监控哪些服务
+  aggregator:
+    clusterConfig: default  #指定聚合哪些集群，多个使用","分割，默认为default。可使用http://.../turbine.stream?cluster={clusterConfig之一}访问
+#1. clusterNameExpression指定集群名称，默认表达式appName；此时：turbine.aggregator.clusterConfig需要配置想要监控的应用名称；
+#2. 当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default；
+#3. 当clusterNameExpression: metadata['cluster']时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，则需要配置，同时turbine.aggregator.clusterConfig: ABC
+  clusterNameExpression: new String("default")

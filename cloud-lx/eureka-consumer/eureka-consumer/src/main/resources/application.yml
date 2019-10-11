@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-cloud-eureka-consumer
+server:
+ port: 9009
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://xjy1:8097/eureka/,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000 #断路器超时时间，默认1000ms

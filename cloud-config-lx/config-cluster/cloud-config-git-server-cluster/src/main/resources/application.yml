@@ -1,0 +1,25 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    bus:
+      trace:
+        enabled: true
+    config:
+      server:
+        git:
+          uri: https://github.com/oIdmonk/SpringcloudConfig    # 配置git仓库的地址
+          search-paths: respo # git仓库地址下的相对地址，可以配置多个，用,分割。
+#          username:    # git仓库的账号  公开仓库可不写
+#          password:    # git仓库的密码  公开仓库可不写
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://xjy1:8097/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

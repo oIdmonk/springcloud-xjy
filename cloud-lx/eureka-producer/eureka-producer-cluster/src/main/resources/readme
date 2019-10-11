@@ -1,0 +1,27 @@
+服务提供者(服务集群、负载均衡)
+maven
+  <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+  </dependency>
+
+1、添加@EnableDiscoveryClient注解后，项目就具有了服务注册的功能。启动工程后，就可以在注册中心的页面看到SPRING-CLOUD-PRODUCER服务。
+2、controller
+  提供hello服务
+    到此服务提供者配置就完成了。
+
+
+
+启动2个服务形成集群注册中心，启动命令：
+java -jar eureka-producer-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy1
+java -jar eureka-producer-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy2
+
+
+
+然后在浏览器再次输入：http://localhost:9001/hello/xjy 进行测试：
+第一次返回结果：hello xjy，this is first messge，我是【xjy1】服务哦
+第二次返回结果：hello xjy，this is first messge，我是【xjy2】服务哦
+
+
+不断的进行测试下去会发现两种结果交替出现，说明两个服务中心自动提供了服务均衡负载的功能。
+如果我们将服务提供者的数量在提高为N个，测试结果一样，请求会自动轮询到每个服务端来处理。

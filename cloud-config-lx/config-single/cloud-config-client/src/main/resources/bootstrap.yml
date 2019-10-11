@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: dev
+  cloud:
+    config:
+      fail-fast: true
+      label: master
+      uri: http://localhost:8040
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
