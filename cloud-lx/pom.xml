@@ -21,7 +21,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.oldmonk</groupId>
-    <artifactId>cloud</artifactId>
+    <artifactId>cloud-lx</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>cloud-lx</name>
     <description>Demo project for Spring Boot</description>
