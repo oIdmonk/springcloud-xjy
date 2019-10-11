@@ -1,4 +1,4 @@
- **踩坑！！！**
+ **踩坑！！！** 
  
   server和client的pom依赖必须分开单独，否则客户端就是读不到server的！！坑！！！！！！
     server不能有spring-cloud-starter-config依赖
