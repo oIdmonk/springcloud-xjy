@@ -4,4 +4,4 @@
     server不能有spring-cloud-starter-config依赖
     client不能有spring-cloud-config-server依赖
 
-    spring-cloud-starter-config中没有web依赖，必须手动引入boot-web！！！！否则启动不了，已删而过！！！！坑！！！！
+>spring-cloud-starter-config中没有web依赖，必须手动引入boot-web！！！！否则启动不了，已删而过！！！！坑！！！！

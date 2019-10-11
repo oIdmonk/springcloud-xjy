@@ -6,4 +6,4 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://xjy1:8097/eureka/,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/
+      defaultZone: http://xjy1:8097/eureka/ #,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/

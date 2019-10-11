@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: zuul-cluster
+server:
+  port: 8096
+#这里的配置表示，访问/it/** 直接重定向到
+zuul:
+  routes:
+    hi:
+      path: /hi/**
+      serviceId: spring-cloud-eureka-producer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://xjy1:8097/eureka/

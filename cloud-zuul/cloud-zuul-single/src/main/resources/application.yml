@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: zuul-single
+server:
+  port: 8095
+#这里的配置表示，访问/it/** 直接重定向到
+zuul:
+  routes:
+    hi:
+      path: /hi/**
+      url: http://www.baidu.com/
