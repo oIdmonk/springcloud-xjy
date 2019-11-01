@@ -3,7 +3,7 @@ spring:
     name: zuul-cluster
 server:
   port: 8096
-#这里的配置表示，访问/it/** 直接重定向到
+#这里的配置表示，访问/hi/** 直接重定向到spring-cloud-eureka-producer
 zuul:
   routes:
     hi:
