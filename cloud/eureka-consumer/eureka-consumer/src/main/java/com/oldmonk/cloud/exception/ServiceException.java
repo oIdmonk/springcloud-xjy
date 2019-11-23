@@ -1,7 +1,7 @@
 package com.oldmonk.cloud.exception;
 
 
-import com.oldmonk.result.Result;
+import com.oldmonk.cloud.result.Result;
 
 /**
  * 服务（业务）异常如“ 账号或密码错误 ”，业务上错误请抛此异常即可

@@ -1,10 +1,10 @@
 package com.oldmonk.cloud.config;
 
 import com.netflix.hystrix.exception.HystrixRuntimeException;
-import com.oldmonk.exception.ParameterException;
-import com.oldmonk.exception.ServiceException;
-import com.oldmonk.result.Result;
-import com.oldmonk.result.ResultMsg;
+import com.oldmonk.cloud.exception.ParameterException;
+import com.oldmonk.cloud.exception.ServiceException;
+import com.oldmonk.cloud.result.Result;
+import com.oldmonk.cloud.result.ResultMsg;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

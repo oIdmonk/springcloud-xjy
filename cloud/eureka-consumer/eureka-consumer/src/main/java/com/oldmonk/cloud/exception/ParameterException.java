@@ -1,7 +1,7 @@
 package com.oldmonk.cloud.exception;
 
 
-import com.oldmonk.result.Result;
+import com.oldmonk.cloud.result.Result;
 
 /**
  * 参数异常，例如参数长度不符合，结合validation
