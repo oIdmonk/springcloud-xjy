@@ -2,24 +2,21 @@
 spring:
   application:
     name: spring-cloud-eureka-producer
-  profiles:
-    active: xjy1
+  profiles: xjy1
 server:
   port: 8079
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://xjy1:8097/eureka/,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/
-
+      defaultZone: http://xjy1:8097/eureka/ #,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/
 ---
 spring:
   application:
     name: spring-cloud-eureka-producer
-  profiles:
-    active: xjy2
+  profiles: xjy2
 server:
   port: 8078
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://xjy1:8097/eureka/,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/
+      defaultZone: http://xjy1:8097/eureka/ #,http://xjy2:8098/eureka/,http://xjy3:8099/eureka/

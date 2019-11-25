@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Hello {
 
-    @Value("spring.profiles.active")
+    @Value("${spring.profiles}")
     private String profile;
 
     @RequestMapping("/hello")

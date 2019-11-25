@@ -13,8 +13,12 @@ maven
 
 
 启动2个服务形成集群注册中心，启动命令：
-java -jar eureka-producer-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy1
-java -jar eureka-producer-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy2
+//java -jar eureka-producer-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy1
+//java -jar eureka-producer-cluster-0.0.1-SNAPSHOT.jar --spring.profiles.active=xjy2
+
+后面演示弄的上面俩命令死活不能指定配置文件，真特娘的见了鬼了，只能先用下面的方法了==
+java -jar -Dspring.profiles.active=xjy1 eureka-producer-cluster-0.0.1-SNAPSHOT.jar
+java -jar -Dspring.profiles.active=xjy2 eureka-producer-cluster-0.0.1-SNAPSHOT.jar
 
 
 
