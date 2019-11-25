@@ -10,4 +10,6 @@ eureka:
     serviceUrl:
       defaultZone: http://xjy1:${server.port}/eureka/   #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔
   instance:
-    hostname: xjy1  #eureka 服务端实例名称
+    hostname: xjy1 #eureka 服务端实例名称
+  server:
+    enable-self-preservation: false #关闭自我保护
